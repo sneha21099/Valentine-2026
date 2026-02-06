@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+  overflow-x:hidden;
+  color:#333;
+}
+.section{
+  display:none;
+  min-height:100vh;
+  padding:40px 20px;
+  text-align:center;
+}
+.active{display:block;}
+
+h1{
+  font-family:'Sacramento',cursive;
+  font-size:48px;
+  color:#ff4f70;
+}
+h2{font-weight:400;}
+
+img.main-img{
+  width:80%;
+  max-width:300px;
+  border-radius:18px;
+  margin:20px 0;
+}
+
+.options button,.final-btn{
+  display:block;
+  margin:14px auto;
+  padding:14px 28px;
+  border-radius:30px;
+  border:none;
+  background:#fff;
+  font-size:16px;
+  cursor:pointer;
+  width:85%;
+  max-width:340px;
+  transition:.3s;
+}
+.options button:hover,.final-btn:hover{background:#ffe6eb;}
+
+input{
+  padding:12px;
+  width:80%;
+  max-width:300px;
+  border-radius:20px;
+  border:none;
+  text-align:center;
+  font-size:16px;
+}
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:floatUp 6s linear infinite;
+  opacity:.6;
+  z-index:1;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:0}
+  20%{opacity:.8}
+  100%{transform:translateY(-110vh);opacity:0}
+}
+
+/* Popup */
+.popup{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(.9);
+  background:rgba(255,255,255,.96);
+  padding:35px 45px;
+  border-radius:30px;
+  opacity:0;
+  pointer-events:none;
+  transition:.6s;
+  z-index:9999;
+  box-shadow:0 30px 60px rgba(0,0,0,.2);
+}
+.popup.show{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+.popup-text{
+  font-family:'Sacramento',cursive;
+  font-size:40px;
+  color:#ff5e78;
+}
+
+/* Floating photos */
+.photo{
+  position:fixed;
+  width:120px;
+  height:120px;
+  border-radius:20px;
+  object-fit:cover;
+  opacity:0;
+  animation:floatPhoto 6s ease forwards;
+  z-index:2;
+}
+@keyframes floatPhoto{
+  0%{opacity:0;transform:translateY(40px) scale(.9)}
+  20%{opacity:1}
+  100%{opacity:0;transform:translateY(-120px) scale(1.05)}
+}
+</style>
+</head>
+
+<body>
+
+<div id="cutePopup" class="popup">
+  <div class="popup-text" id="popupText"></div>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section active" id="section1">
+  <h2>This picture unlocks a memory</h2>
+  <img src="holdinghands.jpg" class="main-img">
+  <p>What does it mean to us?</p>
+  <input id="memoryAnswer" placeholder="Type softly…">
+  <br><br>
+  <button class="final-btn" onclick="checkMemory()">Unlock</button>
+</div>
+
+<!-- QUESTIONS -->
+<div class="section" id="section2">
+<h2>What does she do when she misses you?</h2>
+<div class="options">
+<button onclick="answer(false,'Gets quiet… but there’s more ❤️')">Gets quiet</button>
+<button onclick="answer(false,'Sometimes… but not always ❤️')">Overthinks</button>
+<button onclick="answer(false,'Only on the outside ❤️')">Pretends she’s fine</button>
+<button onclick="answer(true,'You see all of me 🥺',3)">All of the above</button>
+</div>
+</div>
+
+<div class="section" id="section3">
+<h2>What makes her feel safest?</h2>
+<div class="options">
+<button onclick="answer(false,'That matters… but not alone ❤️')">Being heard</button>
+<button onclick="answer(false,'Important… but incomplete ❤️')">Being chosen</button>
+<button onclick="answer(false,'Close… but there’s more ❤️')">Being loved consistently</button>
+<button onclick="answer(true,'This is why I feel safe with you ❤️',4)">All of these, by you</button>
+</div>
+</div>
+
+<div class="section" id="section4">
+<h2>What does she need on her worst days?</h2>
+<div class="options">
+<button onclick="answer(false,'Sometimes… but not first ❤️')">Advice</button>
+<button onclick="answer(false,'Rarely… but thank you ❤️')">Space</button>
+<button onclick="answer(true,'Thank you for staying ❤️',5)">You, just staying</button>
+</div>
+</div>
+
+<div class="section" id="section5">
+<h2>If someone asked why you stayed…</h2>
+<div class="options">
+<button onclick="answer(false,'True… but not the whole reason ❤️')">Because she’s worth it</button>
+<button onclick="answer(false,'Yes… but deeper ❤️')">Because this feels real</button>
+<button onclick="answer(true,'That was always enough ❤️',6)">Because it’s her</button>
+</div>
+</div>
+
+<div class="section" id="section6">
+<h2>Which chocolate did you give me first? 🍫</h2>
+<div class="options">
+<button onclick="answer(false,'Sweet… but not the first ❤️')">Toblerone</button>
+<button onclick="answer(false,'Classic… but not this one 💭')">Dairy Milk</button>
+<button onclick="answer(true,'Yes 🥺❤️',7)">Nutella sticks</button>
+</div>
+</div>
+
+<div class="section" id="section7">
+<h2>When did you say “I love you” for the first time? ❤️</h2>
+<div class="options">
+<button onclick="answer(false,'Too soon ❤️')">On the first date</button>
+<button onclick="answer(false,'Not that late 💫')">After many months</button>
+<button onclick="answer(true,'Exactly ❤️',8)">After a few dates</button>
+</div>
+</div>
+
+<div class="section" id="section8">
+<h2>Where did we kiss for the first time? 💋</h2>
+<div class="options">
+<button onclick="answer(false,'Would’ve been cute 😌')">In the bus</button>
+<button onclick="answer(false,'Close… but no ❤️')">Hotel without Mahi</button>
+<button onclick="answer(true,'Yes 🥺❤️',9)">Hotel with Mahi</button>
+</div>
+</div>
+
+<!-- VALENTINE -->
+<div class="section" id="section9">
+<h1>Will you be my Valentine? ❤️</h1>
+<button class="final-btn" onclick="yesClicked()">YES 💖</button>
+<button class="final-btn" id="noBtn">NO 😏</button>
+</div>
+
+<div class="section" id="section10">
+<h1>I choose you.</h1>
+<h1>Every version.</h1>
+<h1>Every distance.</h1>
+<h1>Always.</h1>
+</div>
+
+<div class="section" id="section11">
+<h1>Us 💞</h1>
+</div>
+
+<script>
+const validAnswers=["song","call","inside joke","place"];
+
+function checkMemory(){
+  const v=document.getElementById("memoryAnswer").value.toLowerCase();
+  if(validAnswers.some(x=>v.includes(x))){
+    showPopup("You remembered 🥺");
+    setTimeout(()=>nextSection(2),1000);
+  }else{
+    showPopup("Try again softly 💭");
+  }
+}
+
+function showPopup(text){
+  const p=document.getElementById("cutePopup");
+  document.getElementById("popupText").innerText=text;
+  p.classList.add("show");
+  setTimeout(()=>p.classList.remove("show"),2500);
+}
+
+function nextSection(n){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById("section"+n).classList.add("active");
+}
+
+function answer(ok,msg,next){
+  showPopup(msg);
+  if(ok) setTimeout(()=>nextSection(next),1000);
+}
+
+function yesClicked(){
+  showPopup("I knew you’d say yes 💖");
+  setTimeout(()=>nextSection(10),1200);
+  setTimeout(startSlideshow,3000);
+}
+
+document.getElementById("noBtn").addEventListener("mouseover",e=>{
+  e.target.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`
+});
+
+const images=[
+  "IMG_0446.jpg",
+  "imgs.jpg",
+  "IMG_3109.jpg",
+  "IMG_1222.jpg",
+  "fbaf1955-c039-45cf-9f1b-1ec1572aee88.jpg",
+  "imge.jpg"
+];
+
+function startSlideshow(){
+  nextSection(11);
+  let rounds=0;
+  const interval=setInterval(()=>{
+    images.sort(()=>0.5-Math.random())
+      .slice(0,3+Math.floor(Math.random()*2))
+      .forEach(src=>{
+        const img=document.createElement("img");
+        img.src=src;
+        img.className="photo";
+        img.style.left=Math.random()*80+"vw";
+        img.style.top=40+Math.random()*40+"vh";
+        document.body.appendChild(img);
+        setTimeout(()=>img.remove(),6000);
+      });
+    rounds++;
+    if(rounds===5){
+      clearInterval(interval);
+      setTimeout(()=>showPopup("Every memory… it’s always been you ❤️"),1500);
+    }
+  },3500);
+}
+
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=16+Math.random()*20+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},450);
+</script>
+
+</body>
+</html>
