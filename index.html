@@ -62,7 +62,7 @@ input{
   font-size:16px;
 }
 
-/* Floating hearts */
+/* Hearts */
 .heart{
   position:fixed;
   bottom:-20px;
@@ -102,21 +102,21 @@ input{
   color:#ff5e78;
 }
 
-/* Floating photos */
+/* FLOATING PHOTOS (UPDATED) */
 .photo{
   position:fixed;
-  width:120px;
-  height:120px;
-  border-radius:20px;
+  width:180px;
+  height:180px;
+  border-radius:24px;
   object-fit:cover;
   opacity:0;
-  animation:floatPhoto 6s ease forwards;
+  animation:floatPhoto 7s ease forwards;
   z-index:2;
 }
 @keyframes floatPhoto{
-  0%{opacity:0;transform:translateY(40px) scale(.9)}
+  0%{opacity:0;transform:translateY(60px) scale(.95)}
   20%{opacity:1}
-  100%{opacity:0;transform:translateY(-120px) scale(1.05)}
+  100%{opacity:0;transform:translateY(-160px) scale(1.05)}
 }
 </style>
 </head>
@@ -129,21 +129,21 @@ input{
 
 <!-- SECTION 1 -->
 <div class="section active" id="section1">
-  <h2>This picture unlocks a memory</h2>
+  <h2>This picture holds the sweetest yet crucial part of US</h2>
   <img src="holdinghands.jpg" class="main-img">
-  <p>What does it mean to us?</p>
-  <input id="memoryAnswer" placeholder="Type softly…">
+  <p>What comes to your mind after seeing this?</p>
+  <input id="memoryAnswer" placeholder="Soch Samaj kar jawab do…">
   <br><br>
-  <button class="final-btn" onclick="checkMemory()">Unlock</button>
+  <button class="final-btn" onclick="checkMemory()">UNLOCK</button>
 </div>
 
 <!-- QUESTIONS -->
 <div class="section" id="section2">
 <h2>What does she do when she misses you?</h2>
 <div class="options">
-<button onclick="answer(false,'Gets quiet… but there’s more ❤️')">Gets quiet</button>
-<button onclick="answer(false,'Sometimes… but not always ❤️')">Overthinks</button>
-<button onclick="answer(false,'Only on the outside ❤️')">Pretends she’s fine</button>
+<button onclick="answer(false,'Yeah Sometimes because I cant stay away from you  ❤️')">Irritates You</button>
+<button onclick="answer(false,'Sometimes… but not always.. ❤️')">Overthinks</button>
+<button onclick="answer(false,'Yesss because all I want is you.. ❤️')">Spams you with msgs or calls</button>
 <button onclick="answer(true,'You see all of me 🥺',3)">All of the above</button>
 </div>
 </div>
@@ -151,9 +151,9 @@ input{
 <div class="section" id="section3">
 <h2>What makes her feel safest?</h2>
 <div class="options">
-<button onclick="answer(false,'That matters… but not alone ❤️')">Being heard</button>
-<button onclick="answer(false,'Important… but incomplete ❤️')">Being chosen</button>
-<button onclick="answer(false,'Close… but there’s more ❤️')">Being loved consistently</button>
+<button onclick="answer(false,'That matters… but not alone babyy ❤️')">Being heard</button>
+<button onclick="answer(false,'Definetly important but not alone babyy❤️')">Giving attention</button>
+<button onclick="answer(false,'Close… but there’s more Saduu babyy ❤️')">Being loved consistently</button>
 <button onclick="answer(true,'This is why I feel safe with you ❤️',4)">All of these, by you</button>
 </div>
 </div>
@@ -162,50 +162,54 @@ input{
 <h2>What does she need on her worst days?</h2>
 <div class="options">
 <button onclick="answer(false,'Sometimes… but not first ❤️')">Advice</button>
-<button onclick="answer(false,'Rarely… but thank you ❤️')">Space</button>
-<button onclick="answer(true,'Thank you for staying ❤️',5)">You, just staying</button>
+<button onclick="answer(false,'Ahh Yes but food with you would be more delicious ❤️')">Food</button>
+<button onclick="answer(false,'Neverrr..So never give me anyyyyyyyyyy ❤️')">Space</button>
+<button onclick="answer(true,'Thank you for staying always besides me ❤️',5)">You, just staying</button>
 </div>
 </div>
 
 <div class="section" id="section5">
 <h2>If someone asked why you stayed…</h2>
 <div class="options">
-<button onclick="answer(false,'True… but not the whole reason ❤️')">Because she’s worth it</button>
-<button onclick="answer(false,'Yes… but deeper ❤️')">Because this feels real</button>
-<button onclick="answer(true,'That was always enough ❤️',6)">Because it’s her</button>
+<button onclick="answer(false,'Of courseeee… but not the whole reason ❤️')">Because I am preety</button>
+<button onclick="answer(false,'Of courseeee… I knew it , I am special and lucky to have you as well ❤️')">Because you have never met anyone like me</button>
+<button onclick="answer(false,'Yes real than anything in world… but deeper ❤️')">Because this feels real</button>
+<button onclick="answer(true,'Rightttttttt and I love you till end of time... ❤️',6)">Because u lovee me the most and cannot live without me</button>
 </div>
 </div>
 
 <div class="section" id="section6">
 <h2>Which chocolate did you give me first? 🍫</h2>
 <div class="options">
-<button onclick="answer(false,'Sweet… but not the first ❤️')">Toblerone</button>
-<button onclick="answer(false,'Classic… but not this one 💭')">Dairy Milk</button>
-<button onclick="answer(true,'Yes 🥺❤️',7)">Nutella sticks</button>
+<button onclick="answer(false,'Favourite one.. but not the first one saduu sethh❤️')">Toblerone</button>
+<button onclick="answer(false,'Classic… but not this one Saduuu 💭')">Dairy Milk</button>
+<button onclick="answer(true,'Yes  Yes Yes Yes Yes Yes 🥺❤️',7)">Nutella sticks</button>
+<button onclick="answer(false,'No Babyyyyyy , Think 💭')">KitKat</button>
 </div>
 </div>
 
 <div class="section" id="section7">
 <h2>When did you say “I love you” for the first time? ❤️</h2>
 <div class="options">
-<button onclick="answer(false,'Too soon ❤️')">On the first date</button>
-<button onclick="answer(false,'Not that late 💫')">After many months</button>
-<button onclick="answer(true,'Exactly ❤️',8)">After a few dates</button>
+<button onclick="answer(false,'No Saduuuuu.... Think Again ❤️')">On the first date</button>
+<button onclick="answer(false,'No Saduuuuu.... Think Again ❤️')">After many months</button>
+<button onclick="answer(true,'You are absolutely right.. You chose the bestest',8)">After a few dates</button>
+<button onclick="answer(false,'Cmmon Saduuuuu.... Dimag pe jor daalo ❤️')">After many months</button>
 </div>
 </div>
 
 <div class="section" id="section8">
 <h2>Where did we kiss for the first time? 💋</h2>
 <div class="options">
-<button onclick="answer(false,'Would’ve been cute 😌')">In the bus</button>
+<button onclick="answer(false,'We tried to .. but unfortunately not 😌')">In the bus</button>
 <button onclick="answer(false,'Close… but no ❤️')">Hotel without Mahi</button>
-<button onclick="answer(true,'Yes 🥺❤️',9)">Hotel with Mahi</button>
+<button onclick="answer(true,'Yes Yes Yes .. I still think of it sometimes .. It was pure magic but we did share the moment with Mahi hehehe 🥺❤️',9)">Hotel with Mahi</button>
 </div>
 </div>
 
 <!-- VALENTINE -->
 <div class="section" id="section9">
-<h1>Will you be my Valentine? ❤️</h1>
+<h1>Will you be my Valentine Saduuuuu? ❤️</h1>
 <button class="final-btn" onclick="yesClicked()">YES 💖</button>
 <button class="final-btn" id="noBtn">NO 😏</button>
 </div>
@@ -217,28 +221,28 @@ input{
 <h1>Always.</h1>
 </div>
 
-<div class="section" id="section11">
-<h1>Us 💞</h1>
+<div class="section" id="section11">  
+  <h1>Us 💞</h1>
 </div>
 
 <script>
-const validAnswers=["song","call","inside joke","place"];
+const validAnswers=["long distance","forever","miss you","missing you","airport","love" ,"goodbyes","together","i love you","i love u","i miss u","i miss you" ];
 
 function checkMemory(){
   const v=document.getElementById("memoryAnswer").value.toLowerCase();
   if(validAnswers.some(x=>v.includes(x))){
-    showPopup("You remembered 🥺");
-    setTimeout(()=>nextSection(2),1000);
+    showPopup("I knew you will get it right Smarty 🥺",3000);
+    setTimeout(()=>nextSection(2),3000);
   }else{
-    showPopup("Try again softly 💭");
+    showPopup("Opps Wrong answer baby...Think Harder 💭");
   }
 }
 
-function showPopup(text){
+function showPopup(text,duration = 3000){
   const p=document.getElementById("cutePopup");
   document.getElementById("popupText").innerText=text;
   p.classList.add("show");
-  setTimeout(()=>p.classList.remove("show"),2500);
+  setTimeout(()=>p.classList.remove("show"),duration);
 }
 
 function nextSection(n){
@@ -247,13 +251,16 @@ function nextSection(n){
 }
 
 function answer(ok,msg,next){
-  showPopup(msg);
-  if(ok) setTimeout(()=>nextSection(next),1000);
+  showPopup(msg, 3000);
+  if(ok){
+    setTimeout(()=>nextSection(next), 3000);
+  }
 }
 
+
 function yesClicked(){
-  showPopup("I knew you’d say yes 💖");
-  setTimeout(()=>nextSection(10),1200);
+  showPopup("Anyway you dont have any option but to choose MEEEEEEEEEEEEEEEEEEEEEEE 💖",3000);
+  setTimeout(()=>nextSection(10));
   setTimeout(startSlideshow,3000);
 }
 
@@ -261,38 +268,77 @@ document.getElementById("noBtn").addEventListener("mouseover",e=>{
   e.target.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`
 });
 
+/* 🔁 INFINITE FLOATING SLIDESHOW */
 const images=[
   "IMG_0446.jpg",
   "imgs.jpg",
   "IMG_3109.jpg",
   "IMG_1222.jpg",
   "fbaf1955-c039-45cf-9f1b-1ec1572aee88.jpg",
-  "imge.jpg"
+  "imge.jpg",
+  "IMG_0512.JPG",
+  "IMG_1131.jpg",
+  "IMG_1055.jpg",
+  "20250214_220806.jpg"
 ];
 
-function startSlideshow(){
-  nextSection(11);
-  let rounds=0;
-  const interval=setInterval(()=>{
-    images.sort(()=>0.5-Math.random())
-      .slice(0,3+Math.floor(Math.random()*2))
-      .forEach(src=>{
-        const img=document.createElement("img");
-        img.src=src;
-        img.className="photo";
-        img.style.left=Math.random()*80+"vw";
-        img.style.top=40+Math.random()*40+"vh";
-        document.body.appendChild(img);
-        setTimeout(()=>img.remove(),6000);
-      });
-    rounds++;
-    if(rounds===5){
-      clearInterval(interval);
-      setTimeout(()=>showPopup("Every memory… it’s always been you ❤️"),1500);
+const activePositions = [];
+const PHOTO_SIZE = 200; // px
+const MIN_DISTANCE = 220; // px
+
+function getSafePosition() {
+  let attempts = 0;
+
+  while (attempts < 20) {
+    const x = Math.random() * (window.innerWidth - PHOTO_SIZE);
+    const y = Math.random() * (window.innerHeight - PHOTO_SIZE - 150) + 100;
+
+    const isSafe = activePositions.every(pos => {
+      const dx = pos.x - x;
+      const dy = pos.y - y;
+      return Math.sqrt(dx*dx + dy*dy) > MIN_DISTANCE;
+    });
+
+    if (isSafe) {
+      return { x, y };
     }
-  },3500);
+
+    attempts++;
+  }
+
+  // fallback (still place, but rare)
+  return {
+    x: Math.random() * (window.innerWidth - PHOTO_SIZE),
+    y: Math.random() * (window.innerHeight - PHOTO_SIZE)
+  };
 }
 
+function startSlideshow() {
+  nextSection(11);
+
+  setInterval(() => {
+    const src = images[Math.floor(Math.random() * images.length)];
+    const pos = getSafePosition();
+
+    const img = document.createElement("img");
+    img.src = src;
+    img.className = "photo";
+    img.style.left = pos.x + "px";
+    img.style.top = pos.y + "px";
+
+    document.body.appendChild(img);
+    activePositions.push(pos);
+
+    setTimeout(() => {
+      img.remove();
+      const index = activePositions.indexOf(pos);
+      if (index > -1) activePositions.splice(index, 1);
+    }, 7000);
+
+  }, 1800); // smooth, continuous flow
+}
+
+/* Hearts */
 setInterval(()=>{
   const h=document.createElement("div");
   h.className="heart";
