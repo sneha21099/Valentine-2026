@@ -174,7 +174,7 @@ input{
 <button onclick="answer(false,'Of courseeee… but not the whole reason ❤️')">Because I am preety</button>
 <button onclick="answer(false,'Of courseeee… I knew it , I am special and lucky to have you as well ❤️')">Because you have never met anyone like me</button>
 <button onclick="answer(false,'Yes real than anything in world… but deeper ❤️')">Because this feels real</button>
-<button onclick="answer(true,'Rightttttttt and I love you till end of time... ❤️',6)">Because u lovee me the most and cannot live without me</button>
+<button onclick="answer(true,'Yessss and I love you till end of time... ❤️',6)">Because u lovee me the most and cannot live without me</button>
 </div>
 </div>
 
@@ -189,12 +189,12 @@ input{
 </div>
 
 <div class="section" id="section7">
-<h2>When did you say “I love you” for the first time? ❤️</h2>
+<h2>When did I say “I love you” for the first time? ❤️</h2>
 <div class="options">
-<button onclick="answer(false,'No Saduuuuu.... Think Again ❤️')">On the first date</button>
-<button onclick="answer(false,'No Saduuuuu.... Think Again ❤️')">After many months</button>
-<button onclick="answer(true,'You are absolutely right.. You chose the bestest',8)">After a few dates</button>
-<button onclick="answer(false,'Cmmon Saduuuuu.... Dimag pe jor daalo ❤️')">After many months</button>
+<button onclick="answer(false,'No Saduuuuu.... Think Again ❤️')">7th October 2023</button>
+<button onclick="answer(false,'No Saduuuuu.... Think Again ❤️')">12th August 2023</button>
+<button onclick="answer(true,'You are absolutely right.. You chose the bestest',8)">17th October 2023</button>
+<button onclick="answer(false,'Cmmon Saduuuuu.... Dimag pe jor daalo ❤️')">17th November 2023</button>
 </div>
 </div>
 
@@ -202,8 +202,8 @@ input{
 <h2>Where did we kiss for the first time? 💋</h2>
 <div class="options">
 <button onclick="answer(false,'We tried to .. but unfortunately not 😌')">In the bus</button>
-<button onclick="answer(false,'Close… but no ❤️')">Hotel without Mahi</button>
-<button onclick="answer(true,'Yes Yes Yes .. I still think of it sometimes .. It was pure magic but we did share the moment with Mahi hehehe 🥺❤️',9)">Hotel with Mahi</button>
+<button onclick="answer(false,'Ahhmm not the first one but one of the best one though ❤️')">In Auto</button>
+<button onclick="answer(true,'Yes Yes Yes .. I still think of it sometimes .. It was pure magic🥺❤️',9)">Hotel</button>
 </div>
 </div>
 
@@ -221,29 +221,37 @@ input{
 <h1>Always.</h1>
 </div>
 
-<div class="section" id="section11">  
-  <h1>Somewhere along the way we became us.Loving you hasn’t been about perfection.
-It’s been about choosing —
-choosing to stay, choosing to listen,
-choosing each other even on days that felt heavy.
-    
-With you, love feels steady.
-Not rushed. Not uncertain.
-Just warm… like something I can rest in.
+<div class="section" id="section11">
+  <div class="love-box" id="loveBox">
+    <div class="love-line">Somewhere along the way…</div>
+    <div class="love-line">without realizing it,</div>
+    <div class="love-line">we became <strong>us.</strong></div>
 
-You make the ordinary feel special.
-You make distance feel smaller.
-You make the word home mean a person, not a place.
+    <div class="love-line">Loving you was never about perfection.</div>
+    <div class="love-line">It was about choosing.</div>
 
-So when I ask you this today,
-it’s not just for one day or one moment.
+    <div class="love-line">Choosing to stay.</div>
+    <div class="love-line">Choosing to understand.</div>
+    <div class="love-line">Choosing you — even on the hard days.</div>
 
-It’s me saying —
-I see you. I choose you. I want this life with you.
+    <div class="love-line">With you, love feels steady.</div>
+    <div class="love-line">Not rushed. Not uncertain.</div>
+    <div class="love-line">Just warm… like something I can rest in.</div>
 
-Happy Valentine’s Day to the one who holds my heart 💞</h1>
+    <div class="love-line">You make the ordinary feel special</div>
+    <div class="love-line">You make distance feel smaller....</div>
+    <div class="love-line">You make the word home mean a person, not a place...</div>
+    <div class="love-line">So when I ask you this today,</div>
+    <div class="love-line">its not just for one day or one moment.</div>
+    <div class="love-line">Its me saying —</div>
+    <div class="love-line">I see YOU. I choose YOU. I want this life with YOU.</div>
+
+    <div class="final-line"><strong>Happy Valentine’s Day </strong>to the one who holds my heart.. 💞</div>
+  </div>
 </div>
-
+<audio id="bgMusic" loop>
+  <source src="Until_I_Found_You-646184-mobiles24.mp3" type="audio/mpeg" />
+</audio>
 <script>
 const validAnswers=["long distance","forever","miss you","missing you","airport","love" ,"goodbyes","together","i love you","i love u","i miss u","i miss you" ];
 
@@ -276,12 +284,37 @@ function answer(ok,msg,next){
   }
 }
 
+function revealLoveLines(){
+  const lines=document.querySelectorAll(".love-line");
+  const final=document.querySelector(".final-line");
+
+  lines.forEach((line,i)=>{
+    setTimeout(()=>line.classList.add("show"), i*1200);
+  });
+
+  setTimeout(()=>{
+    final.classList.add("show");
+  }, lines.length*1200 + 1000);
+}
+
+
+
+
+
 
 function yesClicked(){
+  document.getElementById("bgMusic").play(); // 🎵 START SONG
+
   showPopup("Anyway you dont have any option but to choose MEEEEEEEEEEEEEEEEEEEEEEE 💖",3000);
-  setTimeout(()=>nextSection(10));
-  setTimeout(startSlideshow,3000);
+
+  setTimeout(()=>{
+    nextSection(11);
+    revealLoveLines();
+    startSlideshow();
+  },3000);
 }
+
+
 
 document.getElementById("noBtn").addEventListener("mouseover",e=>{
   e.target.style.transform=`translate(${Math.random()*200-100}px,${Math.random()*200-100}px)`
@@ -371,4 +404,3 @@ setInterval(()=>{
 
 </body>
 </html>
-
